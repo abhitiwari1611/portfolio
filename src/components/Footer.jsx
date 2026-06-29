@@ -5,7 +5,11 @@ function Footer() {
 
   useEffect(() => {
     // Check if we are in local development or if this is the admin
-    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const isLocal = 
+      window.location.hostname === 'localhost' || 
+      window.location.hostname === '127.0.0.1' || 
+      window.location.hostname === '::1' || 
+      window.location.port !== '';
     
     // Check url for admin flag (visiting with ?admin=true will set local flag)
     const urlParams = new URLSearchParams(window.location.search);

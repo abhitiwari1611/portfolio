@@ -11,47 +11,59 @@ import Footer from './components/Footer';
 
 function App() {
   useEffect(() => {
-    // Scroll Reveal System
+    // Scroll Reveal — staggered entrance per section
     const revealElements = document.querySelectorAll('.scroll-reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            // Don't unobserve — keep stagger intact on re-entry
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+    );
 
-    revealElements.forEach(el => observer.observe(el));
-    
-    if (window.lucide) {
-      window.lucide.createIcons();
+    revealElements.forEach((el) => observer.observe(el));
+
+    // Lucide icon initialization — retry pattern for CDN timing
+    const initIcons = () => {
+      if (window.lucide) {
+        window.lucide.createIcons();
+        return true;
+      }
+      return false;
+    };
+
+    if (!initIcons()) {
+      // CDN not yet loaded — wait for it
+      const interval = setInterval(() => {
+        if (initIcons()) clearInterval(interval);
+      }, 100);
+      setTimeout(() => clearInterval(interval), 5000);
     }
 
-    return () => {
-      revealElements.forEach(el => observer.unobserve(el));
-    };
+    return () => revealElements.forEach((el) => observer.unobserve(el));
   }, []);
 
   return (
     <>
-      {/* Interactive Canvas Background */}
+      {/* Interactive canvas background */}
       <CanvasParticles />
 
-      {/* Top Glow Header Banner */}
+      {/* Status banner */}
       <div className="status-banner">
         <span className="pulse-indicator"></span>
         <span className="status-text">
-          Active: Building Management Information Systems (MIS) at <strong>South Point &amp; Company</strong>
+          Active — building MIS systems at <strong>South Point &amp; Company</strong>
         </span>
       </div>
 
       {/* Navigation */}
       <Navbar />
 
-      {/* Main Container */}
+      {/* Main */}
       <main>
         <Hero />
         <Experience />

@@ -11,17 +11,12 @@ function CanvasParticles() {
     let particlesArray = [];
     let animationFrameId;
 
-    const mouse = {
-      x: null,
-      y: null,
-      radius: 120
-    };
+    const mouse = { x: null, y: null, radius: 100 };
 
-    const handleMouseMove = (event) => {
-      mouse.x = event.clientX;
-      mouse.y = event.clientY;
+    const handleMouseMove = (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
     };
-
     const handleMouseOut = () => {
       mouse.x = null;
       mouse.y = null;
@@ -31,13 +26,14 @@ function CanvasParticles() {
     window.addEventListener('mouseout', handleMouseOut);
 
     class Particle {
-      constructor(x, y, directionX, directionY, size, color) {
+      constructor(x, y, dx, dy, size) {
         this.x = x;
         this.y = y;
-        this.directionX = directionX;
-        this.directionY = directionY;
+        this.directionX = dx;
+        this.directionY = dy;
         this.size = size;
-        this.color = color;
+        // Amber tone, very low opacity
+        this.color = 'rgba(232, 197, 71, 0.18)';
       }
 
       draw() {
@@ -48,20 +44,16 @@ function CanvasParticles() {
       }
 
       update() {
-        if (this.x > canvas.width || this.x < 0) {
-          this.directionX = -this.directionX;
-        }
-        if (this.y > canvas.height || this.y < 0) {
-          this.directionY = -this.directionY;
-        }
+        if (this.x > canvas.width || this.x < 0) this.directionX = -this.directionX;
+        if (this.y > canvas.height || this.y < 0) this.directionY = -this.directionY;
 
         if (mouse.x !== null && mouse.y !== null) {
-          let dx = mouse.x - this.x;
-          let dy = mouse.y - this.y;
-          let distance = Math.sqrt(dx * dx + dy * dy);
-          if (distance < mouse.radius) {
-            this.x += dx * 0.02;
-            this.y += dy * 0.02;
+          const dx = mouse.x - this.x;
+          const dy = mouse.y - this.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < mouse.radius) {
+            this.x += dx * 0.015;
+            this.y += dy * 0.015;
           }
         }
 
@@ -71,36 +63,33 @@ function CanvasParticles() {
       }
     }
 
-    function initParticlesArray() {
+    function initParticles() {
       particlesArray = [];
-      let numberOfParticles = Math.floor((canvas.width * canvas.height) / 9000);
-      if (numberOfParticles > 120) numberOfParticles = 120;
-      if (numberOfParticles < 40) numberOfParticles = 40;
+      // Fewer particles than before — more restrained
+      let count = Math.floor((canvas.width * canvas.height) / 14000);
+      count = Math.min(Math.max(count, 25), 70);
 
-      for (let i = 0; i < numberOfParticles; i++) {
-        let size = (Math.random() * 2) + 1;
-        let x = (Math.random() * ((canvas.width - size * 2) - (size * 2)) + size * 2);
-        let y = (Math.random() * ((canvas.height - size * 2) - (size * 2)) + size * 2);
-        let directionX = (Math.random() * 0.4) - 0.2;
-        let directionY = (Math.random() * 0.4) - 0.2;
-        let color = 'rgba(0, 200, 150, 0.4)';
-
-        particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+      for (let i = 0; i < count; i++) {
+        const size = Math.random() * 1.5 + 0.5;
+        const x = Math.random() * (canvas.width - size * 4) + size * 2;
+        const y = Math.random() * (canvas.height - size * 4) + size * 2;
+        const dx = (Math.random() * 0.3) - 0.15;
+        const dy = (Math.random() * 0.3) - 0.15;
+        particlesArray.push(new Particle(x, y, dx, dy, size));
       }
     }
 
     function connect() {
-      let opacityValue = 1;
       for (let a = 0; a < particlesArray.length; a++) {
         for (let b = a; b < particlesArray.length; b++) {
-          let dx = particlesArray[a].x - particlesArray[b].x;
-          let dy = particlesArray[a].y - particlesArray[b].y;
-          let distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < 95) {
-            opacityValue = 1 - (distance / 95);
-            ctx.strokeStyle = `rgba(0, 200, 150, ${opacityValue * 0.12})`;
-            ctx.lineWidth = 0.8;
+          const dx = particlesArray[a].x - particlesArray[b].x;
+          const dy = particlesArray[a].y - particlesArray[b].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          // Shorter connection distance — less busy
+          if (dist < 80) {
+            const opacity = (1 - dist / 80) * 0.07;
+            ctx.strokeStyle = `rgba(232, 197, 71, ${opacity})`;
+            ctx.lineWidth = 0.6;
             ctx.beginPath();
             ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
             ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
@@ -108,14 +97,15 @@ function CanvasParticles() {
           }
         }
 
+        // Mouse connections — also toned down
         if (mouse.x !== null && mouse.y !== null) {
-          let dx = particlesArray[a].x - mouse.x;
-          let dy = particlesArray[a].y - mouse.y;
-          let distance = Math.sqrt(dx * dx + dy * dy);
-          if (distance < mouse.radius) {
-            opacityValue = 1 - (distance / mouse.radius);
-            ctx.strokeStyle = `rgba(0, 200, 150, ${opacityValue * 0.22})`;
-            ctx.lineWidth = 1;
+          const dx = particlesArray[a].x - mouse.x;
+          const dy = particlesArray[a].y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < mouse.radius) {
+            const opacity = (1 - dist / mouse.radius) * 0.14;
+            ctx.strokeStyle = `rgba(232, 197, 71, ${opacity})`;
+            ctx.lineWidth = 0.8;
             ctx.beginPath();
             ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
             ctx.lineTo(mouse.x, mouse.y);
@@ -127,9 +117,7 @@ function CanvasParticles() {
 
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let i = 0; i < particlesArray.length; i++) {
-        particlesArray[i].update();
-      }
+      particlesArray.forEach((p) => p.update());
       connect();
       animationFrameId = requestAnimationFrame(animate);
     }
@@ -137,7 +125,7 @@ function CanvasParticles() {
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      initParticlesArray();
+      initParticles();
     };
 
     window.addEventListener('resize', resizeCanvas);

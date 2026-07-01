@@ -12,7 +12,7 @@ function Hero() {
       'Full-Stack Developer',
       'Backend Developer',
       'Systems & MIS Developer',
-      'Computer Engineering Student'
+      'Computer Engineering Student',
     ];
 
     class TextScrambler {
@@ -24,7 +24,7 @@ function Hero() {
       setText(newText) {
         const oldText = this.el.innerText;
         const length = Math.max(oldText.length, newText.length);
-        const promise = new Promise((resolve) => this.resolve = resolve);
+        const promise = new Promise((resolve) => (this.resolve = resolve));
         this.queue = [];
         for (let i = 0; i < length; i++) {
           const from = oldText[i] || '';
@@ -80,9 +80,7 @@ function Hero() {
     const nextPhrase = () => {
       if (!isMounted) return;
       scrambler.setText(phrases[counter]).then(() => {
-        if (isMounted) {
-          timeoutId = setTimeout(nextPhrase, 3000);
-        }
+        if (isMounted) timeoutId = setTimeout(nextPhrase, 3000);
       });
       counter = (counter + 1) % phrases.length;
     };
@@ -90,13 +88,9 @@ function Hero() {
     nextPhrase();
 
     const heroSec = document.getElementById('hero');
-    if (heroSec) {
-      heroSec.classList.add('active');
-    }
+    if (heroSec) heroSec.classList.add('active');
 
-    if (window.lucide) {
-      window.lucide.createIcons();
-    }
+    if (window.lucide) window.lucide.createIcons();
 
     return () => {
       isMounted = false;
@@ -108,31 +102,41 @@ function Hero() {
   return (
     <section id="hero" className="hero-section">
       <div className="hero-content">
-        <div className="hero-tag-glow">Open to new opportunities</div>
-        <h1 className="hero-title">ABHISHEK TIWARI</h1>
+        {/* Status indicator — not a pill, just a label with a pulse dot */}
+        <div className="hero-tag-glow">
+          Currently @ South Point &amp; Company · Open to what&apos;s next
+        </div>
+
+        <h1 className="hero-title">Abhishek<br />Tiwari</h1>
+
         <div className="hero-subtitle">
-          <span id="scramble-prefix">I am a </span>
+          <span id="scramble-prefix">— </span>
           <span id="scramble-target" ref={scrambleRef} className="text-gradient">
             Full-Stack Developer
           </span>
         </div>
+
         <p className="hero-desc">
-          Computer Engineering student at PSIT Kanpur, currently working as a Junior Developer at South Point &amp; Company.
-          I build full-stack web applications, backend services, and data pipelines that are fast, maintainable, and actually work.
+          Computer Engineering student at PSIT Kanpur, building MIS systems at
+          South Point &amp; Company. I write backend services, design databases, and
+          ship full-stack applications that are fast, maintainable, and actually work.
         </p>
+
         <div className="hero-actions">
           <a href="#projects-container" className="btn btn-primary">
-            See my work <i data-lucide="arrow-down"></i>
+            See my work <i data-lucide="arrow-right"></i>
           </a>
-          <a href="/AbhishekTiwari_SoftwareEngineer.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
-            View CV <i data-lucide="eye"></i>
-          </a>
-          <a href="/AbhishekTiwari_SoftwareEngineer.pdf" download="AbhishekTiwari_SoftwareEngineer.pdf" className="btn btn-outline">
-            Download CV <i data-lucide="download"></i>
+          <a
+            href="/AbhishekTiwari_SoftwareEngineer.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-text"
+          >
+            View CV <i data-lucide="external-link"></i>
           </a>
         </div>
       </div>
-      
+
       <div className="hero-visual">
         <div className="hero-avatar-wrapper">
           <div className="hero-avatar-glow"></div>

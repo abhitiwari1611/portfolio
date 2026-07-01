@@ -65,12 +65,6 @@ function Footer() {
         </p>
         <div className="footer-meta">
           <span>Handcrafted in Kanpur, India</span>
-          <span className="divider">·</span>
-          <span className="footer-ping-wrapper">
-            <span className="ping-circle"></span>
-            <span className="ping-pulse"></span>
-            <span>Open to work</span>
-          </span>
         </div>
       </div>
     </footer>

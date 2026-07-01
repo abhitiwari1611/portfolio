@@ -83,7 +83,7 @@ function CanvasParticles() {
         let y = (Math.random() * ((canvas.height - size * 2) - (size * 2)) + size * 2);
         let directionX = (Math.random() * 0.4) - 0.2;
         let directionY = (Math.random() * 0.4) - 0.2;
-        let color = i % 2 === 0 ? 'rgba(139, 92, 246, 0.45)' : 'rgba(6, 182, 212, 0.45)';
+        let color = 'rgba(0, 200, 150, 0.4)';
 
         particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
       }
@@ -99,7 +99,7 @@ function CanvasParticles() {
 
           if (distance < 95) {
             opacityValue = 1 - (distance / 95);
-            ctx.strokeStyle = `rgba(139, 92, 246, ${opacityValue * 0.15})`;
+            ctx.strokeStyle = `rgba(0, 200, 150, ${opacityValue * 0.12})`;
             ctx.lineWidth = 0.8;
             ctx.beginPath();
             ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
@@ -114,7 +114,7 @@ function CanvasParticles() {
           let distance = Math.sqrt(dx * dx + dy * dy);
           if (distance < mouse.radius) {
             opacityValue = 1 - (distance / mouse.radius);
-            ctx.strokeStyle = `rgba(6, 182, 212, ${opacityValue * 0.25})`;
+            ctx.strokeStyle = `rgba(0, 200, 150, ${opacityValue * 0.22})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(particlesArray[a].x, particlesArray[a].y);

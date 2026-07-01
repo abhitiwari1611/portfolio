@@ -10,8 +10,8 @@ function Skills() {
   return (
     <section id="skills" className="section-padding scroll-reveal">
       <div className="section-header">
-        <span className="subtitle">Capabilities</span>
-        <h2 className="section-title">Technical Skillset Matrix</h2>
+        <span className="subtitle">What I know</span>
+        <h2 className="section-title">Skills</h2>
       </div>
       <div id="skills-container" className="skills-grid">
         <div className="skill-category glass-card">

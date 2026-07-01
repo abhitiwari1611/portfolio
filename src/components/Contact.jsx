@@ -84,15 +84,15 @@ function Contact() {
   return (
     <section id="contact" className="section-padding scroll-reveal">
       <div className="section-header">
-        <span className="subtitle">Get in Touch</span>
-        <h2 className="section-title">Connect &amp; Collaborate</h2>
+        <span className="subtitle">Say hello</span>
+        <h2 className="section-title">Get in touch</h2>
       </div>
       <div id="contact-card" className="contact-card-container">
         
         {/* Contact Info Card */}
         <div className="contact-info-card glass-card">
-          <h3 className="contact-card-title">Let's build something exceptional.</h3>
-          <p className="contact-card-sub text-gradient">Currently designing active pipelines and full-stack environments.</p>
+          <h3 className="contact-card-title">Happy to chat.</h3>
+          <p className="contact-card-sub text-gradient">Currently working full-time, but open to interesting opportunities and collaborations.</p>
 
           <div className="contact-methods">
             {/* Email Contact */}
@@ -159,9 +159,9 @@ function Contact() {
         </div>
 
         {/* Contact Message Form */}
-        <div className="contact-form-card glass-card" style={{ padding: '50px' }}>
-          <h3 className="contact-card-title">Send a Message</h3>
-          <p className="contact-card-sub text-gradient">Or initiate a conversation directly via form submission.</p>
+        <div className="contact-form-card glass-card">
+          <h3 className="contact-card-title">Send a message</h3>
+          <p className="contact-card-sub text-gradient">Fill in the form and I'll get back to you.</p>
           
           <form id="contact-form" className="contact-form" onSubmit={handleFormSubmit}>
             <div className="form-group">

@@ -108,7 +108,7 @@ function Hero() {
   return (
     <section id="hero" className="hero-section">
       <div className="hero-content">
-        <div className="hero-tag-glow">Available for Innovation</div>
+        <div className="hero-tag-glow">Open to new opportunities</div>
         <h1 className="hero-title">ABHISHEK TIWARI</h1>
         <div className="hero-subtitle">
           <span id="scramble-prefix">I am a </span>
@@ -117,12 +117,12 @@ function Hero() {
           </span>
         </div>
         <p className="hero-desc">
-          Computer Engineering student at PSIT Kanpur &amp; Junior Developer at South Point &amp; Company.
-          Specializing in highly performant full-stack systems, backend architectures, and web applications.
+          Computer Engineering student at PSIT Kanpur, currently working as a Junior Developer at South Point &amp; Company.
+          I build full-stack web applications, backend services, and data pipelines that are fast, maintainable, and actually work.
         </p>
         <div className="hero-actions">
           <a href="#projects-container" className="btn btn-primary">
-            Explore Work <i data-lucide="arrow-down"></i>
+            See my work <i data-lucide="arrow-down"></i>
           </a>
           <a href="/AbhishekTiwari_SoftwareEngineer.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
             View CV <i data-lucide="eye"></i>

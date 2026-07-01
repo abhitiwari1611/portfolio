@@ -5,7 +5,7 @@ function Footer() {
     <footer className="glass-footer">
       <div className="footer-container">
         <p className="footer-copyright">
-          &copy; 2026 Abhishek Tiwari. Handcrafted with precision &amp; design-system ethics.
+          © 2026 Abhishek Tiwari. Built from scratch.
         </p>
         <div className="footer-meta">
           <span>Designed in Kanpur, India</span>
@@ -13,7 +13,7 @@ function Footer() {
           <span className="footer-ping-wrapper">
             <span className="ping-circle"></span>
             <span className="ping-pulse"></span>
-            <span>Systems Operational</span>
+            <span>Open to work</span>
           </span>
         </div>
       </div>

@@ -24,7 +24,7 @@ function Navbar() {
     top: '100%',
     left: '0',
     width: '100%',
-    background: 'rgba(7, 5, 20, 0.95)',
+    background: '#0a0c11',
     padding: '20px',
     borderBottom: '1px solid var(--border-color)',
     gap: '20px',

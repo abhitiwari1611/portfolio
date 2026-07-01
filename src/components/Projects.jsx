@@ -13,10 +13,10 @@ function Projects() {
       name: 'Netflix Recommendation System',
       image: '/images/netflix.png',
       badge: '85% Rating Precision',
-      desc: 'Cleaned and pre-processed 17,000+ title entries to implement a content-based recommender system alongside collaborative filtering algorithms. Features modular REST endpoints and an interactive React web dashboard.',
+      desc: 'Built a movie recommendation engine on top of a dataset of 17,000+ Netflix titles. It uses content-based filtering (genre, cast, description) and collaborative filtering to suggest what to watch next. There\'s a React dashboard to browse recommendations.',
       highlights: [
-        { icon: 'zap', text: '200ms Recommendation Latency' },
-        { icon: 'layers', text: 'Content similarity matching across 5,000+ titles' }
+        { icon: 'zap', text: '200ms average response time' },
+        { icon: 'layers', text: 'Matches across 5,000+ titles' }
       ],
       tech: ['Python', 'TensorFlow', 'Flask', 'React', 'REST API'],
       github: 'https://github.com/abhiofficial1611/netflix-recommendation'
@@ -26,10 +26,10 @@ function Projects() {
       name: 'Fake News Detection',
       image: '/images/news.png',
       badge: '95% Validation Accuracy',
-      desc: 'An NLP classification pipeline trained on 10,000+ news articles. Performs state-of-the-art tokenization, stopword removal, and TF-IDF matrix generation to classify misinformation with statistical certainty.',
+      desc: 'Trained an NLP model on 10,000+ news articles to tell real headlines apart from fake ones. The pipeline cleans and tokenises text, builds a TF-IDF matrix, then runs classification. Hits 95% accuracy on the validation set.',
       highlights: [
-        { icon: 'activity', text: '60% Dimensionality Reduction' },
-        { icon: 'binary', text: '15+ Engineered Custom Text Features' }
+        { icon: 'activity', text: '60% dimensionality reduction' },
+        { icon: 'binary', text: '15+ custom text features' }
       ],
       tech: ['Python', 'TensorFlow', 'Scikit-learn', 'NLP'],
       github: 'https://github.com/abhiofficial1611/fake-news-detector'
@@ -39,10 +39,10 @@ function Projects() {
       name: 'Fabric Classification System',
       image: '/images/fabric.png',
       badge: '85.71% Test Accuracy',
-      desc: 'A lightweight CNN-based classifier utilizing custom MobileNet layers to differentiate fabric compositions. Integrates a Streamlit dashboard mapping explanation regions via Grad-CAM heatmaps.',
+      desc: 'A CNN that identifies fabric types from photos. Built on MobileNet so it stays small (around 5MB), and ships with a Streamlit app that highlights the parts of the image the model actually looked at to make its decision.',
       highlights: [
-        { icon: 'file-code', text: 'Compact 1.09M Parameters (~5MB size)' },
-        { icon: 'expand', text: '63x dataset augmentation using ImageDataGenerator' }
+        { icon: 'file-code', text: '1.09M parameters, ~5MB total size' },
+        { icon: 'expand', text: '63x dataset augmentation' }
       ],
       tech: ['Python', 'TensorFlow / Keras', 'MobileNet', 'Streamlit', 'OpenCV', 'Grad-CAM'],
       github: 'https://github.com/abhiofficial1611/fabric-classification-cnn'
@@ -52,10 +52,10 @@ function Projects() {
       name: 'Aadhaar Operational Stress Analysis',
       image: '/images/aadhaar.png',
       badge: 'Stress Index Mapping',
-      desc: 'Analyzed Aadhaar enrolment and update data to assess district-level service loads and operational stress. Formulated a regional Stress Index to quantify updates vs enrolments and isolate biometric/demographic anomalies.',
+      desc: 'Looked at Aadhaar enrolment and update data across districts to figure out which regions are under the most operational pressure. Built a simple stress index (updates relative to enrolments) to flag districts that need attention.',
       highlights: [
-        { icon: 'activity', text: 'Updates vs enrolments stress quantification' },
-        { icon: 'alert-triangle', text: 'Biometric vs demographic root-cause anomaly detection' }
+        { icon: 'activity', text: 'Update-to-enrolment ratio per district' },
+        { icon: 'alert-triangle', text: 'Flags biometric vs demographic issues separately' }
       ],
       tech: ['Python', 'Pandas', 'Matplotlib', 'Seaborn', 'Data Analytics'],
       github: 'https://github.com/abhiofficial1611/aadhaar-stress-analysis'
@@ -64,24 +64,24 @@ function Projects() {
       id: 5,
       name: 'Employee Attrition Analysis (IBM)',
       image: '/images/attrition.png',
-      badge: '1,470+ Record Scan',
-      desc: 'Analyzed IBM HR datasets to identify key drivers of employee attrition. Evaluated department-specific KPIs around overtime, tenure, and work-life balance to support corporate retention planning.',
+      badge: '1,470+ records',
+      desc: 'Used IBM\'s HR dataset to find out why employees leave. Looked at factors like overtime, how long people had been at the company, and work-life balance scores to identify which groups were most likely to quit.',
       highlights: [
-        { icon: 'trending-up', text: 'Overtime, tenure, and work-life balance KPIs' },
-        { icon: 'pie-chart', text: 'High-risk employee group correlation profiling' }
+        { icon: 'trending-up', text: 'Overtime, tenure & work-life balance analysis' },
+        { icon: 'pie-chart', text: 'Identifies highest-risk employee groups' }
       ],
       tech: ['SQL', 'Python', 'Pandas', 'Excel', 'Data Segmentation'],
       github: 'https://github.com/abhiofficial1611/employee-attrition-ibm'
     },
     {
       id: 6,
-      name: 'AI Business Analytics Dashboard & Assistant',
+      name: 'Business Analytics Dashboard',
       image: '/images/dashboard.png',
-      badge: '~70% Reporting Optimization',
-      desc: 'Built interactive Power BI reporting dashboards and ad-hoc query tools mapping month-over-month performance. Automates cleaning pipelines and applies regression forecasting to model revenue trends.',
+      badge: '~70% faster reporting',
+      desc: 'Built Power BI dashboards to track month-over-month business performance and forecast revenue trends. Also wrote cleaning scripts in Python and Power Query so data goes in clean without manual prep each time.',
       highlights: [
-        { icon: 'layout', text: 'Power BI KPIs & revenue forecasting dashboards' },
-        { icon: 'cpu', text: 'Automated Pandas / Power Query cleaning pipeline' }
+        { icon: 'layout', text: 'KPI tracking & revenue forecasting in Power BI' },
+        { icon: 'cpu', text: 'Automated data cleaning pipeline' }
       ],
       tech: ['Power BI', 'Python', 'Pandas', 'Power Query', 'Regression'],
       github: 'https://github.com/abhiofficial1611/business-analytics-dashboard'
@@ -91,7 +91,7 @@ function Projects() {
   return (
     <section id="projects" className="section-padding scroll-reveal">
       <div className="section-header">
-        <span className="subtitle">Portfolio</span>
+        <span className="subtitle">Things I've built</span>
         <h2 className="section-title">Projects</h2>
       </div>
       <div id="projects-container" className="projects-grid">

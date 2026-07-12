@@ -140,7 +140,7 @@ function Hero() {
       <div className="hero-visual">
         <div className="hero-avatar-wrapper">
           <div className="hero-avatar-glow"></div>
-          <img src="/images/profile.jpg" alt="Abhishek Tiwari" className="hero-avatar" />
+          <img src="/images/profile.webp" alt="Abhishek Tiwari" className="hero-avatar" fetchpriority="high" />
         </div>
       </div>
     </section>

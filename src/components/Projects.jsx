@@ -10,7 +10,7 @@ function Projects() {
     {
       id: 1,
       name: 'Netflix Recommendation System',
-      image: '/images/netflix.png',
+      image: '/images/netflix.webp',
       badge: '85% Rating Precision',
       desc: 'Built a movie recommendation engine on top of a dataset of 17,000+ Netflix titles. Uses content-based filtering (genre, cast, description) and collaborative filtering to suggest what to watch next. Includes a React dashboard to browse recommendations.',
       highlights: [
@@ -23,7 +23,7 @@ function Projects() {
     {
       id: 2,
       name: 'Fake News Detection',
-      image: '/images/news.png',
+      image: '/images/news.webp',
       badge: '95% Validation Accuracy',
       desc: 'Trained an NLP model on 10,000+ news articles to classify real headlines from fake ones. Pipeline cleans and tokenises text, builds a TF-IDF matrix, then runs classification. Hits 95% accuracy on the validation set.',
       highlights: [
@@ -36,7 +36,7 @@ function Projects() {
     {
       id: 3,
       name: 'Fabric Classification CNN',
-      image: '/images/fabric.png',
+      image: '/images/fabric.webp',
       badge: '85.71% Test Accuracy',
       desc: 'A CNN that identifies fabric types from photos. Built on MobileNet so it stays small (~5MB), ships with a Streamlit app, and uses Grad-CAM to highlight the exact regions of the image that drove the model\'s decision.',
       highlights: [
@@ -53,7 +53,7 @@ function Projects() {
     {
       id: 4,
       name: 'Aadhaar Stress Analysis',
-      image: '/images/aadhaar.png',
+      image: '/images/aadhaar.webp',
       badge: 'Stress Index Mapping',
       desc: 'Looked at Aadhaar enrolment and update data across districts to flag regions under the most operational pressure using a custom stress index.',
       tech: ['Python', 'Pandas', 'Matplotlib', 'Seaborn'],
@@ -62,7 +62,7 @@ function Projects() {
     {
       id: 5,
       name: 'Employee Attrition — IBM',
-      image: '/images/attrition.png',
+      image: '/images/attrition.webp',
       badge: '1,470+ records',
       desc: 'Used IBM\'s HR dataset to find out why employees leave — analysing overtime, tenure, and work-life balance to surface the highest-risk employee groups.',
       tech: ['SQL', 'Python', 'Pandas', 'Excel'],
@@ -71,7 +71,7 @@ function Projects() {
     {
       id: 6,
       name: 'Business Analytics Dashboard',
-      image: '/images/dashboard.png',
+      image: '/images/dashboard.webp',
       badge: '~70% faster reporting',
       desc: 'Built Power BI dashboards for month-over-month performance tracking and revenue forecasting, plus automated data cleaning pipelines so data goes in clean each time.',
       tech: ['Power BI', 'Python', 'Power Query', 'Regression'],
@@ -91,7 +91,7 @@ function Projects() {
         {featured.map((project) => (
           <div key={project.id} className="project-card">
             <div className="project-image-container">
-              <img src={project.image} alt={project.name} className="project-image" />
+              <img src={project.image} alt={project.name} className="project-image" loading="lazy" />
               <span className="metric-badge">{project.badge}</span>
             </div>
             <div className="project-info">
@@ -132,7 +132,7 @@ function Projects() {
           {compact.map((project) => (
             <div key={project.id} className="project-card compact">
               <div className="project-image-container">
-                <img src={project.image} alt={project.name} className="project-image" />
+                <img src={project.image} alt={project.name} className="project-image" loading="lazy" />
                 <span className="metric-badge">{project.badge}</span>
               </div>
               <div className="project-info">

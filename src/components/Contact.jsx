@@ -101,7 +101,7 @@ function Contact() {
 
             {/* GitHub */}
             <a
-              href="https://github.com/abhiofficial1611"
+              href="https://github.com/abhitiwari1611"
               target="_blank"
               rel="noopener noreferrer"
               className="contact-item link-item"
@@ -111,7 +111,7 @@ function Contact() {
               </div>
               <div className="contact-details">
                 <span className="contact-label">GitHub</span>
-                <span className="contact-value">abhiofficial1611</span>
+                <span className="contact-value">abhitiwari1611</span>
               </div>
               <div className="copy-action-btn">
                 <i data-lucide="external-link"></i>

@@ -18,7 +18,7 @@ function Projects() {
         { icon: 'layers', text: 'Matches across 5,000+ titles' },
       ],
       tech: ['Python', 'TensorFlow', 'Flask', 'React', 'REST API'],
-      github: 'https://github.com/abhiofficial1611/netflix-recommendation',
+      github: 'https://github.com/abhitiwari1611/netflix-recommendation',
     },
     {
       id: 2,
@@ -31,7 +31,7 @@ function Projects() {
         { icon: 'binary', text: '15+ custom text features engineered' },
       ],
       tech: ['Python', 'TensorFlow', 'Scikit-learn', 'NLP'],
-      github: 'https://github.com/abhiofficial1611/fake-news-detector',
+      github: 'https://github.com/abhitiwari1611/fake-news-detector',
     },
     {
       id: 3,
@@ -44,7 +44,7 @@ function Projects() {
         { icon: 'expand', text: '63× dataset augmentation' },
       ],
       tech: ['Python', 'TensorFlow / Keras', 'MobileNet', 'Streamlit', 'Grad-CAM'],
-      github: 'https://github.com/abhiofficial1611/fabric-classification-cnn',
+      github: 'https://github.com/abhitiwari1611/fabric-classification-cnn',
     },
   ];
 
@@ -57,7 +57,7 @@ function Projects() {
       badge: 'Stress Index Mapping',
       desc: 'Looked at Aadhaar enrolment and update data across districts to flag regions under the most operational pressure using a custom stress index.',
       tech: ['Python', 'Pandas', 'Matplotlib', 'Seaborn'],
-      github: 'https://github.com/abhiofficial1611/aadhaar-stress-analysis',
+      github: 'https://github.com/abhitiwari1611/aadhaar-stress-analysis',
     },
     {
       id: 5,
@@ -66,7 +66,7 @@ function Projects() {
       badge: '1,470+ records',
       desc: 'Used IBM\'s HR dataset to find out why employees leave — analysing overtime, tenure, and work-life balance to surface the highest-risk employee groups.',
       tech: ['SQL', 'Python', 'Pandas', 'Excel'],
-      github: 'https://github.com/abhiofficial1611/employee-attrition-ibm',
+      github: 'https://github.com/abhitiwari1611/employee-attrition-ibm',
     },
     {
       id: 6,
@@ -75,7 +75,7 @@ function Projects() {
       badge: '~70% faster reporting',
       desc: 'Built Power BI dashboards for month-over-month performance tracking and revenue forecasting, plus automated data cleaning pipelines so data goes in clean each time.',
       tech: ['Power BI', 'Python', 'Power Query', 'Regression'],
-      github: 'https://github.com/abhiofficial1611/business-analytics-dashboard',
+      github: 'https://github.com/abhitiwari1611/business-analytics-dashboard',
     },
   ];
 

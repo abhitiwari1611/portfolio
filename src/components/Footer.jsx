@@ -10,7 +10,7 @@ function Footer() {
   ];
 
   const externalLinks = [
-    { label: 'GitHub', href: 'https://github.com/abhiofficial1611' },
+    { label: 'GitHub', href: 'https://github.com/abhitiwari1611' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/abhitiwari1611/' },
     { label: 'Email', href: 'mailto:abhiofficial1611@gmail.com' },
     { label: 'Resume (PDF)', href: '/AbhishekTiwari_SoftwareEngineer.pdf' },
